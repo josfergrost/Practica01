@@ -1,0 +1,73 @@
+﻿@using Practica01.Clases;
+@{
+    ViewData["Title"] = "ClienteDatos";
+    string mensaje = "Datos del Cliente";
+    string[] nombres = { "Luis", "Pepe", "Juan","Martin" };
+    List<ServicioCLS> listaServicio = new List<ServicioCLS>();
+    ServicioCLS servicio = new ServicioCLS();
+    servicio.id = "Rep";
+    servicio.nombre = "Reparacion";
+    servicio.sucursal = "Sahuayo";
+    servicio.nCompras = "1";
+    listaServicio.Add(servicio);
+
+    ServicioCLS servicio1 = new ServicioCLS();
+    servicio1.id = "Dul";
+    servicio1.nombre = "Dulces";
+    servicio1.sucursal = "Sahuayo";
+    servicio1.nCompras = "3";
+    listaServicio.Add(servicio1);
+
+    ServicioCLS servicio2 = new ServicioCLS();
+    servicio2.id = "Cac";
+    servicio2.nombre = "Cable tipo C";
+    servicio2.sucursal = "Sahuayo";
+    servicio2.nCompras = "3";
+    listaServicio.Add(servicio2);
+
+    ServicioCLS servicio3 = new ServicioCLS();
+    servicio3.id = "Cav";
+    servicio3.nombre = "Cables tipo V8";
+    servicio3.sucursal = "Sahuayo";
+    servicio3.nCompras = "1";
+    listaServicio.Add(servicio3);
+
+}
+
+<h1>@mensaje</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Identificador</th>
+            <th>Nombre</th>
+            <th>Sucursal</th>
+            <th>Num.Compras</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach(ServicioCLS serv in listaServicio)
+            {
+            <tr>
+                <td>@serv.id</td>
+                <td>@serv.nombre</td>
+                <td>@serv.sucursal</td>
+                <td>@serv.nCompras</td>
+            </tr>
+            }
+    </tbody>
+</table>
+
+@*<div>
+    <h2>Clientes</h2>
+    <div>
+        @foreach(string nom in nombres)
+        {
+            @if(nom.StartsWith("M"))
+            {
+           <h3>Nombre: @nom</h3>
+            }
+        }
+    </div>
+</div>@**@
+
+
